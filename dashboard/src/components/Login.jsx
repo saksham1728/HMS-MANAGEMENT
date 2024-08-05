@@ -9,7 +9,7 @@ const Login = () => {
     const {isAuthenticated,setIsAuthenticated}=useContext(Context);
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
-    const[confirmPassword,setConfirmPassword]=useState("");
+
 
     const navigateTo=useNavigate();
 
@@ -19,8 +19,8 @@ const Login = () => {
         e.preventDefault();
         try{
           const response=await axios.post(
-            https://hms-management-backend.onrender.com/api/v1/user/login",
-            {email,password,confirmPassword,role:"Admin"},
+            "https://hms-management-backend.onrender.com/api/v1/user/login",
+            {email,password,role:"Admin"},
             {withCredentials:true,
               headers:{"Content-Type":"application/json"}
     
@@ -57,11 +57,6 @@ const Login = () => {
          value={password} 
          onChange={(e)=>setPassword(e.target.value)} 
          placeholder="Password"
-         />
-        <input type="password" 
-         value={confirmPassword}
-         onChange={(e)=>setConfirmPassword(e.target.value)} 
-         placeholder="Confirm Password"
          />
         <div style={{justifyContent:"center",alignItems:"center"}}>
           <button type="submit" style={{cursor:"pointer"}}>Login</button>
