@@ -24,7 +24,7 @@ const Register = () => {
     e.preventDefault();
     try{
       const response=await axios.post(
-        "http://localhost:3000/api/v1/user/patient/register",
+        "https://hms-management-backend.onrender.com/api/v1/user/patient/register",
         {firstName,lastName,email,phone,dob,gender,password,confirmPassword,role:"Patient"},
         {withCredentials:true,
           headers:{"Content-Type":"application/json"}
