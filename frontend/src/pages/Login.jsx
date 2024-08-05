@@ -8,7 +8,7 @@ const Login = () => {
   const {isAuthenticated,setIsAuthenticated}=useContext(Context);
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
-  const[confirmPassword,setConfirmPassword]=useState("");
+  
 
   const navigateTo=useNavigate();
 
@@ -17,10 +17,9 @@ const Login = () => {
     try{
       const response=await axios.post(
         "http://localhost:3000/api/v1/user/login",
-        {email,password,confirmPassword,role:"Patient"},
+        {email,password,role:"Patient"},
         {withCredentials:true,
           headers:{"Content-Type":"application/json"}
-
         }
       );
       toast.success(response.data.message);
