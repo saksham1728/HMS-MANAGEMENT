@@ -34,6 +34,7 @@ const Navbar = () => {
 
 
   return (
+      <>
     <nav className="container">
         <div className="logo">
         <img src="/logo.png" alt="logo" className="logo-img" />
@@ -57,7 +58,7 @@ const Navbar = () => {
         </div>
     </nav>
        <div 
-                style={{
+                    style={{
                     position: 'fixed',
                     right: '50px',
                     bottom: '30px',
@@ -72,6 +73,7 @@ const Navbar = () => {
             >
                 <FaCommentDots size={24} />
             </div>
+          </>
   )
 }
 
