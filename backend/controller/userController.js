@@ -5,7 +5,7 @@ import { generateToken } from "../utils/jwTokens.js";
 import cloudinary from "cloudinary";
 
 export const patientRegister = catchAsyncErrors(async (req, res, next) => {
-    const { firstName, lastName, email, phone, nic, dob, gender, password, role } = req.body;
+    const { firstName, lastName, email, phone,confirmPassword , dob, gender, password, role } = req.body;
 
     // Check for missing fields
     if (
@@ -13,13 +13,18 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
         !lastName ||
         !email ||
         !phone ||
-        !nic ||
+        !confirmPassword ||
         !dob ||
         !gender ||
         !password ||
         !role
     ) {
         return next(new ErrorHandler("Please fill Full Form", 400));
+    }
+    //Check if password is not equal to confirm password
+    
+      if (password !== confirmPassword) {
+        return next(new ErrorHandler("Password and Confirm Password did not match", 400));
     }
 
     // Check if user already exists
@@ -30,7 +35,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
 
     // Create a new user and handle validation errors
     try {
-        const user = new User({ firstName, lastName, email, phone, nic, dob, gender, password, role });
+        const user = new User({ firstName, lastName, email, phone, dob, gender, password, role });
         await user.save();
         generateToken(user, "User Registered ! ", 200, res);
 
@@ -46,13 +51,11 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
 
 
 export const login = catchAsyncErrors(async (req, res, next) => {
-    const { email, password, confirmPassword, role } = req.body;
+    const { email, password, role } = req.body;
     if (!email || !password || !confirmPassword || !role) {
         return next(new ErrorHandler("Please provide all details !", 400));
     }
-    if (password !== confirmPassword) {
-        return next(new ErrorHandler("Password and Confirm Password did not match", 400));
-    }
+  
 
     const user = await User.findOne({ email }).select("+password");
     if (!user) {
