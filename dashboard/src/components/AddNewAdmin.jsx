@@ -13,7 +13,7 @@ const AddNewAdmin = () => {
   const [email,setEmail]=useState("");
   const [phone,setPhone]=useState("");
   const [password,setPassword]=useState("");
-  const [nic,setNic]=useState("");
+  const [confirmPassword,setConfirmPassword]=useState("");
   const [gender,setGender]=useState("");
   const [dob,setDob]=useState("");
 
@@ -58,15 +58,15 @@ const AddNewAdmin = () => {
         <input type="number" placeholder="Phone" value={phone} onChange={(e)=>setPhone(e.target.value)} />
        </div>
        <div>
-          <input type="number" placeholder="Aadhar Number" value={nic} onChange={(e)=>setNic(e.target.value)} />
-          <input type="date" placeholder="Date of Birth" value={dob} onChange={(e)=>setDob(e.target.value)}/>
-      </div>
-      <div>
-          <select value={gender} onChange={(e)=>setGender(e.target.value)}>
+             <select value={gender} onChange={(e)=>setGender(e.target.value)}>
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
-          </select>
+          </select>      
+          <input type="date" placeholder="Date of Birth" value={dob} onChange={(e)=>setDob(e.target.value)}/>
+      </div>
+      <div>
+        
           <input 
           type="password"
           placeholder="password"
