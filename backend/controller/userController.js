@@ -73,19 +73,25 @@ export const login = catchAsyncErrors(async (req, res, next) => {
 });
 
 export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
-    const { firstName, lastName, email, phone, nic, dob, gender, password, role } = req.body;
+    const { firstName, lastName, email, phone,confirmPassword, dob, gender, password, role } = req.body;
     if (
         !firstName ||
         !lastName ||
         !email ||
         !phone ||
-        !nic ||
+        !confirmPassword ||
         !dob ||
         !gender ||
         !password
     ) {
         return next(new ErrorHandler("Please fill Full Form", 400));
     }
+
+     if (password !== confirmPassword) {
+        return next(new ErrorHandler("Password and Confirm Password did not match", 400));
+    }
+
+    
     const isRegistered = await User.findOne({ email });
     if (isRegistered) {
         return next(new ErrorHandler(`${isRegistered.role} with this E-mail is already registered`));
