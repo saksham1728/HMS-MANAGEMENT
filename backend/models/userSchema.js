@@ -26,7 +26,6 @@ const userSchema=new mongoose.Schema({
     },
    nic:{
     type:String,
-    required:true,
     minLength:[12,"Aadhar Number must contain 12 digits"],
    },
    dob:{
