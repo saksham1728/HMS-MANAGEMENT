@@ -16,6 +16,7 @@ const Register = () => {
   const [nic,setNic]=useState("");
   const [gender,setGender]=useState("");
   const [dob,setDob]=useState("");
+  const [confirmPassword,setConfirmPassword]=useState("");
 
   const navigateTo=useNavigate();
 
@@ -24,7 +25,7 @@ const Register = () => {
     try{
       const response=await axios.post(
         "http://localhost:3000/api/v1/user/patient/register",
-        {firstName,lastName,email,phone,nic,dob,gender,password,role:"Patient"},
+        {firstName,lastName,email,phone,dob,gender,password,confirmPassword,role:"Patient"},
         {withCredentials:true,
           headers:{"Content-Type":"application/json"}
         }
@@ -59,22 +60,26 @@ const Register = () => {
         </div>
 
         <div>
-          <input type="number" placeholder="Aadhar Number" value={nic} onChange={(e)=>setNic(e.target.value)} />
-          <input type="date" placeholder="Date of Birth" value={dob} onChange={(e)=>setDob(e.target.value)}/>
-        </div>
-
-        <div>
-          <select value={gender} onChange={(e)=>setGender(e.target.value)}>
+           <select value={gender} onChange={(e)=>setGender(e.target.value)}>
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
+          <input type="date" placeholder="Date of Birth" value={dob} onChange={(e)=>setDob(e.target.value)}/>
+        </div>
+
+        <div>  
           <input 
           type="password"
           placeholder="password"
           value={password}
           onChange={(e)=>setPassword(e.target.value)}
           />
+           <input type="password"
+             value={confirmPassword} 
+             onChange={(e)=>setConfirmPassword(e.target.value)}
+             placeholder="Confirm Password"
+             />
         </div>
         <div style={{gap:"10px",justifyContent:"flex-end", flexDirection:"row"}}>
           <p style={{marginBottom: 0}}>Already Registered ? </p>
