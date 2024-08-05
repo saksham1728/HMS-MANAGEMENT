@@ -40,7 +40,7 @@ const Doctors = () => {
                                 <p>Email: <span>{element.email}</span></p>
                                 <p>Phone: <span>{element.phone}</span></p>
                                 <p>DOB: <span>{element.dob.substring(0,10)}</span></p>
-                                <p>Department: <span>{element.doctordepartment}</span></p>
+                                <p>Department: <span>{element.doctorDepartment}</span></p>
                                 <p>Aadhar Number: <span>{element.nic}</span></p>
                                 <p>Gender: <span>{element.gender}</span></p>
                             </div>
