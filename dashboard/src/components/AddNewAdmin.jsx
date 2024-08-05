@@ -23,7 +23,7 @@ const AddNewAdmin = () => {
     e.preventDefault();
     try{
       const response=await axios.post(
-        "http://localhost:3000/api/v1/user/admin/addnew",
+        "https://hms-management-backend.onrender.com/api/v1/user/admin/addnew",
         {firstName,lastName,email,phone,nic,dob,gender,password},
         {withCredentials:true,
           headers:{"Content-Type":"application/json"}
