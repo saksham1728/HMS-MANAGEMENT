@@ -4,6 +4,7 @@ import { Context } from '../main';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { FaCommentDots } from 'react-icons/fa';
 
 const Navbar = () => {
     const [show,setShow]=useState(false);
@@ -55,6 +56,22 @@ const Navbar = () => {
             <GiHamburgerMenu/>
         </div>
     </nav>
+       <div 
+                style={{
+                    position: 'fixed',
+                    right: '50px',
+                    bottom: '30px',
+                    cursor: 'pointer',
+                    zIndex: 1000,
+                    backgroundColor: '#0088cc',
+                    borderRadius: '50%',
+                    padding: '10px',
+                    color: 'white',
+                }}
+                onClick={() => window.open('https://t.me/general_cans_hospital_bot', '_blank')}
+            >
+                <FaCommentDots size={24} />
+            </div>
   )
 }
 
