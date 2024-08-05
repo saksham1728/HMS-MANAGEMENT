@@ -24,7 +24,7 @@ const AddNewAdmin = () => {
     try{
       const response=await axios.post(
         "https://hms-management-backend.onrender.com/api/v1/user/admin/addnew",
-        {firstName,lastName,email,phone,nic,dob,gender,password},
+        {firstName,lastName,email,phone,confirmPassword,dob,gender,password},
         {withCredentials:true,
           headers:{"Content-Type":"application/json"}
         }
@@ -73,6 +73,11 @@ const AddNewAdmin = () => {
           value={password}
           onChange={(e)=>setPassword(e.target.value)}
           />   
+           <input type="password"
+             value={confirmPassword} 
+             onChange={(e)=>setConfirmPassword(e.target.value)}
+             placeholder="Confirm Password"
+             />
         </div>
         <div style={{justifyContent:"center",alignItems:"center"}}>
           <button type="submit" style={{cursor:"pointer"}}>Register</button>
