@@ -42,9 +42,51 @@ const Navbar = () => {
         </div>
             <div className={show ? "navLinks showmenu":"navLinks"}>
                 <div className="links">
-                    <Link to={"/"} onClick={()=>setShow(!show)} >HOME </Link>
-                    <Link to={"/appointment"} onClick={()=>setShow(!show)}>APPOINTMENT </Link>
-                    <Link to={"/about"} onClick={()=>setShow(!show)} >ABOUT US </Link>
+                    <Link 
+                        to="/" 
+                        onClick={() => setShow(!show)}
+                        style={{
+                            color: '#fff',
+                            textDecoration: 'none',
+                            backgroundColor: '#0088cc',
+                            padding: '10px 20px',
+                            borderRadius: '5px',
+                            margin: '5px 0',
+                            fontSize: '16px'
+                        }}
+                    >
+                        HOME
+                    </Link>
+                    <Link 
+                        to="/appointment" 
+                        onClick={() => setShow(!show)}
+                        style={{
+                            color: '#fff',
+                            textDecoration: 'none',
+                            backgroundColor: '#0088cc',
+                            padding: '10px 20px',
+                            borderRadius: '5px',
+                            margin: '5px 0',
+                            fontSize: '16px'
+                        }}
+                    >
+                        APPOINTMENT
+                    </Link>
+                    <Link 
+                        to="/about" 
+                        onClick={() => setShow(!show)}
+                        style={{
+                            color: '#fff',
+                            textDecoration: 'none',
+                            backgroundColor: '#0088cc',
+                            padding: '10px 20px',
+                            borderRadius: '5px',
+                            margin: '5px 0',
+                            fontSize: '16px'
+                        }}
+                    >
+                        ABOUT US
+                    </Link>
                 </div>
                 {
                 isAuthenticated ? 
