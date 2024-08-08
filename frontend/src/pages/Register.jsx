@@ -64,7 +64,7 @@ const Register = () => {
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
-            <option value="Others"></option>
+            <option value="Others">Others</option>
           </select>
           <input type="date" placeholder="Date of Birth" value={dob} onChange={(e)=>setDob(e.target.value)}/>
         </div>
