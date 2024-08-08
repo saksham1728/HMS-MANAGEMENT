@@ -102,7 +102,6 @@ export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
         lastName,
         email,
         phone,
-        nic,
         dob,
         gender,
         password,
